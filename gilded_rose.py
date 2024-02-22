@@ -20,10 +20,10 @@ class GildedRose(object):
     def update_quality(self):
         for item in self.items:
             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert" and item.name != "Sulfuras, Hand of Ragnaros":
-                if "Conjured" in item.name:  # 检查商品是否是Conjured类型
-                    degrade_rate = 2  # Conjured商品的质量下降速度是普通商品的两倍
+                if "Conjured" in item.name:
+                    degrade_rate = 2
                 else:
-                    degrade_rate = 1  # 普通商品的质量下降速度
+                    degrade_rate = 1
                 if item.quality > 0:
                     item.quality = item.quality - degrade_rate
             else:
@@ -40,10 +40,10 @@ class GildedRose(object):
                 item.sell_in = item.sell_in - 1
             if item.sell_in < 0:
                 if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
-                    if "Conjured" in item.name:  # 检查商品是否过期且是Conjured类型
-                        degrade_rate = 2  # Conjured商品过期后的质量下降速度加倍
+                    if "Conjured" in item.name:
+                        degrade_rate = 2
                     else:
-                        degrade_rate = 1  # 普通商品过期后的质量下降速度
+                        degrade_rate = 1
                     if item.quality > 0:
                         item.quality = item.quality - degrade_rate
                 elif item.name == "Backstage passes to a TAFKAL80ETC concert":
